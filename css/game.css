@@ -1,0 +1,83 @@
+.grid{
+    display: grid;
+    width: 100%;
+    max-width: 800px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    margin: 100px auto;
+}
+
+.card{
+    aspect-ratio: 3/5;/*proporção da card*/
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    transition: all 400ms ease;
+    transform-style: preserve-3d;/*preserva style de 3d*/
+    border: solid 3px #333;
+    background-color: #333;
+}
+
+.face{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-size: cover;
+    background-position: center;
+    border-radius: 5px;
+}
+
+.front{
+transform: rotateY(180deg);
+}
+
+.back{/*manipulando uma imagem no css*/
+    background-image: url('../img/Riddler_.png');
+    backface-visibility: hidden;/*a parte de trás será hidden*/
+    
+}
+
+.reveal-card{
+    transform: rotateY(180deg);/*animation de rotate*/
+    
+}
+
+.disabled-card{
+    filter: saturate(0);
+    opacity: 0.5;
+    animation: acertou .4s;
+    transition: filter .3s;
+}
+
+
+
+
+@keyframes acertou {
+    0%{
+        scale: .97;
+    }
+
+    50%{
+        scale: .94
+    }
+
+    10%{
+        scale: 1;
+    }
+}
+
+
+
+/* ============ mobile ================= */
+
+@media (max-width: 800px){
+
+    .grid{
+        display: grid;
+        width: 100%;
+        max-width: 800px;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin: 100px auto;
+    }
+}
