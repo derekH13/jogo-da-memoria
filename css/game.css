@@ -1,11 +1,44 @@
+
+
+
 .grid{
     display: grid;
     width: 100%;
     max-width: 800px;
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
-    margin: 100px auto;
+    margin: 0 auto;
 }
+
+main{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 20px 50px;
+    background-image: url('../img/fundo.jpg');
+   
+
+}
+
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    padding: 30px;
+    margin: 0 0 30px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-family: "Press Start 2P", system-ui;
+    font-size: 1.5em;
+    font-weight: 900;
+
+}
+
 
 .card{
     aspect-ratio: 3/5;/*proporção da card*/
@@ -15,7 +48,7 @@
     transition: all 400ms ease;
     transform-style: preserve-3d;/*preserva style de 3d*/
     border: solid 3px #333;
-    background-color: #333;
+    background-color: #686868;
 }
 
 .face{

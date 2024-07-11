@@ -1,5 +1,7 @@
 const grid = document.querySelector('.grid');
 let audio = new Audio('../css/audio.mp3')
+const spanPlayer = document.querySelector('.player')
+const timer = document.querySelector('.timer');
 
 const characters = [
     '1 (1)',
@@ -23,7 +25,9 @@ const checkEndGame = () => {
     const disabledCards = document.querySelectorAll('.disabled-card');//seleciona todos que tem essa class
 
     if(disabledCards.length == 20 ){
-        alert('parabens voçê ganhou!')
+        clearInterval(this.loop)
+        alert(`Parabéns, ${spanPlayer.innerHTML}! Seu tempo foi: ${timer.innerHTML}`)
+        
     }
 }
 
@@ -67,8 +71,6 @@ if(primeiro == segundo){
 
 
 }
-
-
 
 function revealCard({target}){
 
@@ -121,8 +123,24 @@ const loadGame = () => {
 
 }
 
+const startTimer = () => {
+    this.loop = setInterval(() => {
 
+        const currentTime = +timer.innerHTML;
+        timer.innerHTML = currentTime + 1;
 
+    }, 1000)
+}
+
+window.onload = () => {//vai executar assim que a janela tiver carregado
+
+const playerName = localStorage.getItem('player');//pegando um item do localStorage
+spanPlayer.innerHTML = playerName;
+startTimer();
 loadGame();
+}
+
+
+
 
 
